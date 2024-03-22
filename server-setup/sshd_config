@@ -1,0 +1,8 @@
+# sshd configuration
+ChallengeResponseAuthentication no
+UsePAM yes
+X11Forwarding no
+PrintMotd no
+AcceptEnv LANG LC_*
+PermitRootLogin no
+PasswordAuthentication no
