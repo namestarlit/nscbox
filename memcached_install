@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Installs memcached
+
+sudo apt-get update
+sudo apt-get install -y memcached
+sudo apt install libmemcached-tools
