@@ -54,7 +54,8 @@ else
             DATABASE_DUMP_FILE="$BACKUP_DIR/${DATABASE_NAME}_$BACKUP_DATE.sql"
             mysqldump -u "$BACKUP_USER" -p"$BACKUP_USER_PASSWORD" "$DATABASE_NAME" > "$DATABASE_DUMP_FILE"
         else
-            mysqldump -u "$BACKUP_USER" -p"$BACKUP_USER_PASSWORD" --all-databases > "$DEFAULT_BACKUP_DIR/mysqlbackup_$BACKUP_DATE.sql"
+            BACKUP_DIR="$DEFAULT_BACKUP_DIR"
+            mysqldump -u "$BACKUP_USER" -p"$BACKUP_USER_PASSWORD" --all-databases > "$BACKUP_DIR/mysqlbackup_$BACKUP_DATE.sql"
         fi
     else
         echo "Error: Insufficient arguments provided."
