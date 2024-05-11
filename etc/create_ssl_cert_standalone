@@ -28,12 +28,11 @@ fi
 DOMAIN="$1"
 EMAIL="$2"
 
-fuser -k 80/tcp			# shutdown whatever program is listening at port 80/tcp
 service nginx stop
 
 # Generate the certificate
 echo "Generating SSL certificate for $DOMAIN..."
-certbot certonly --standalone -d "$DOMAIN" --non-interactive --agree-tos --email "$EMAIL"
+certbot certonly -v --standalone -d "$DOMAIN" --non-interactive --agree-tos --email "$EMAIL"
 #certbot certonly --manual --preferred-challenges dns -d "$DOMAIN" --email "$EMAIL"
 
 # Check if the certificate was generated successfully
